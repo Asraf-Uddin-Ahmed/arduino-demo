@@ -52,6 +52,13 @@ void setup() {
   // (no one from the external network could connect)
   server.listenOnLocalhost();
   server.begin();
+
+  // mount to sda
+  process.runShellCommand("mkdir -p " + path); /* mkdir -p /mnt/sda/ */
+  while (process.running());
+  process.runShellCommand("mount /dev/sda " + path);  /* mount /dev/sda /mnt/sda/ */
+  while (process.running());
+
 }
 
 
