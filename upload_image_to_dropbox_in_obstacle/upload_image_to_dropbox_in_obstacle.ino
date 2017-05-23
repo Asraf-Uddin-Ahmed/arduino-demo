@@ -76,8 +76,8 @@ void captureImage() {
   filename.trim();
   filename += ".png";
 
-  // Take picture: fswebcam /mnt/sda/1495478139.png  -r 320x240
-  process.runShellCommand("fswebcam " + path + filename + " -r 320x240");
+  // Take picture: fswebcam /mnt/sda/1495478139.png  -r 320x240 -S 2
+  process.runShellCommand("fswebcam " + path + filename + " -r 320x240 -S 2");
   while (process.running());
 
   Console.println("Uploading image...");
