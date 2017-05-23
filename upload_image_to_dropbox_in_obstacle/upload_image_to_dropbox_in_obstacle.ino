@@ -83,7 +83,7 @@ void captureImage() {
   Console.println("Uploading image...");
   
   // Upload to Dropbox: python /mnt/sda/upload_picture.py /mnt/sda/1495478139.png
-  process.runShellCommand("python " + path + "upload_picture.py " + path + filename);
+  process.runShellCommand("python " + path + "upload_file_to_dropbox.py " + path + filename);
   while (process.running());
 
   Console.println("Captured and uploaded :)");
