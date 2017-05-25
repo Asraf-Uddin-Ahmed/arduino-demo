@@ -1,0 +1,34 @@
+<html>
+<head>
+</head>
+<body>
+	<button onclick="goDirection(-10)">Left</button>
+	<button onclick="goDirection(10)">Right</button>
+	<br>
+	<br>
+	<button onclick="actionOnLed(1)">Led On</button>
+	<button onclick="actionOnLed(0)">Led Off</button>
+	<br>
+	<br>
+	<img width="30%" src="http://192.168.0.100:8080/?action=stream" />
+	<script>
+		function callArduino(url) {
+			var xmlhttp = new XMLHttpRequest();
+			
+			xmlhttp.onreadystatechange = function() {
+				console.log(xmlhttp);
+			};
+
+			xmlhttp.open("GET", url, true);
+			xmlhttp.send();
+			return 			xmlhttp;
+		}
+		var goDirection = function(value){
+			callArduino("http://192.168.0.100/arduino/servo/" + value);
+		}
+		var actionOnLed = function(value){
+			callArduino("http://192.168.0.100/arduino/digital/9/" + value);
+		}
+	</script>
+</body>
+</html>
