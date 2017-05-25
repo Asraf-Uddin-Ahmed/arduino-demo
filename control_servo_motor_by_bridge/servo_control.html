@@ -1,0 +1,21 @@
+<html>
+<head>
+</head>
+<body>
+	<button onclick="goDirection(-10)">Left</button>
+	<button onclick="goDirection(10)">Right</button>
+	
+	<script>
+		function goDirection(value) {
+			var xmlhttp = new XMLHttpRequest();
+			
+			xmlhttp.onreadystatechange = function() {
+				console.log(xmlhttp);
+			};
+
+			xmlhttp.open("GET", "http://192.168.0.100/arduino/servo/" + value, true);
+			xmlhttp.send();
+		}
+	</script>
+</body>
+</html>
